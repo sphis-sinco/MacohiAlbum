@@ -1,6 +1,5 @@
 import flixel.FlxG;
 import macohi.overrides.MText;
-import flixel.text.FlxText;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import macohi.funkin.koya.backend.AssetPaths;
 import macohi.util.StringUtil;
