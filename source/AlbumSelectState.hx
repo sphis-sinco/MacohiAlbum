@@ -1,6 +1,6 @@
-import macohi.overrides.MState;
+import macohi.funkin.pre_vslice.MusicBeatState;
 
-class AlbumSelectState extends MState
+class AlbumSelectState extends MusicBeatState
 {
 	override public function create()
 	{
