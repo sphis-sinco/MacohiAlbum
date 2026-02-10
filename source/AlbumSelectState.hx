@@ -45,5 +45,13 @@ class AlbumSelectState extends MusicBeatState
 			if (albumText.ID == currentSelection)
 				FlxG.camera.follow(albumText);
 		}
+
+		if (Main.controls.justReleased('ui_up'))
+			currentSelection--;
+		if (Main.controls.justReleased('ui_down'))
+			currentSelection++;
+
+		if (currentSelection < 0) currentSelection = albumList.length - 1;
+		if (currentSelection > albumList.length - 1) currentSelection = 0;
 	}
 }
