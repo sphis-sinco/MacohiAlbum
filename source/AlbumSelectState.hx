@@ -1,3 +1,4 @@
+import flixel.util.FlxColor;
 import macohi.util.CamFollow;
 import flixel.FlxObject;
 import flixel.FlxG;
@@ -32,7 +33,7 @@ class AlbumSelectState extends MusicBeatState
 			newAlbum.screenCenter();
 			newAlbum.ID = i;
 
-			newAlbum.y += i * 80;
+			newAlbum.y += i * 120;
 
 			i++;
 		}
@@ -49,8 +50,12 @@ class AlbumSelectState extends MusicBeatState
 
 		for (albumText in albumTexts.members)
 		{
+			albumText.color = FlxColor.WHITE;
 			if (albumText.ID == currentSelection)
-				camFollow.setY(albumText.y);
+			{
+				camFollow.setY(albumText.getGraphicMidpoint().y);
+				albumText.color = FlxColor.YELLOW;
+			}
 		}
 
 		if (Main.controls.justReleased('up'))
@@ -58,7 +63,9 @@ class AlbumSelectState extends MusicBeatState
 		if (Main.controls.justReleased('down'))
 			currentSelection++;
 
-		if (currentSelection < 0) currentSelection = albumList.length - 1;
-		if (currentSelection > albumList.length - 1) currentSelection = 0;
+		if (currentSelection < 0)
+			currentSelection = albumList.length - 1;
+		if (currentSelection > albumList.length - 1)
+			currentSelection = 0;
 	}
 }
