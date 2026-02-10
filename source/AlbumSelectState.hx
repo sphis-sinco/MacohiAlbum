@@ -1,7 +1,5 @@
 import flixel.util.FlxColor;
 import macohi.util.CamFollow;
-import flixel.FlxObject;
-import flixel.FlxG;
 import macohi.overrides.MText;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import macohi.funkin.koya.backend.AssetPaths;
@@ -67,5 +65,8 @@ class AlbumSelectState extends MusicBeatState
 			currentSelection = albumList.length - 1;
 		if (currentSelection > albumList.length - 1)
 			currentSelection = 0;
+
+		if (Main.controls.justReleased('accept'))
+			openSubState(new TrackSelectSubState(albumList[currentSelection]));
 	}
 }
