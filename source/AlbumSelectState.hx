@@ -28,7 +28,7 @@ class AlbumSelectState extends MusicBeatState
 			newAlbum.screenCenter();
 			newAlbum.ID = i;
 
-			newAlbum.y += i * 48;
+			newAlbum.y += i * 80;
 
 			i++;
 		}
@@ -46,9 +46,9 @@ class AlbumSelectState extends MusicBeatState
 				FlxG.camera.follow(albumText);
 		}
 
-		if (Main.controls.justReleased('ui_up'))
+		if (Main.controls.justReleased('up'))
 			currentSelection--;
-		if (Main.controls.justReleased('ui_down'))
+		if (Main.controls.justReleased('down'))
 			currentSelection++;
 
 		if (currentSelection < 0) currentSelection = albumList.length - 1;
