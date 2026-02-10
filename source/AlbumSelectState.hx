@@ -1,3 +1,5 @@
+import macohi.util.CamFollow;
+import flixel.FlxObject;
 import flixel.FlxG;
 import macohi.overrides.MText;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -12,6 +14,8 @@ class AlbumSelectState extends MusicBeatState
 	public var albumTexts:FlxTypedGroup<MText> = new FlxTypedGroup<MText>();
 
 	public var currentSelection:Int = 0;
+
+	public var camFollow:CamFollow;
 
 	override public function create()
 	{
@@ -34,6 +38,9 @@ class AlbumSelectState extends MusicBeatState
 		}
 
 		add(albumTexts);
+
+		camFollow = new CamFollow();
+		add(camFollow);
 	}
 
 	override public function update(elapsed:Float)
@@ -43,7 +50,7 @@ class AlbumSelectState extends MusicBeatState
 		for (albumText in albumTexts.members)
 		{
 			if (albumText.ID == currentSelection)
-				FlxG.camera.follow(albumText);
+				camFollow.setY(albumText.y);
 		}
 
 		if (Main.controls.justReleased('up'))
