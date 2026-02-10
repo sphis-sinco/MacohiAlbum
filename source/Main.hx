@@ -16,6 +16,7 @@ class Main extends Sprite
 		controls.keybinds.set('down', ['S', 'DOWN']);
 		controls.keybinds.set('up', ['W', 'UP']);
 		controls.keybinds.set('right', ['D', 'RIGHT']);
+		controls.keybinds.set('accept', ['ENTER']);
 
 		addChild(new FlxGame(0, 0, AlbumSelectState));
 
